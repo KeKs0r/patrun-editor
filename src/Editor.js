@@ -42,6 +42,11 @@ const initial = Immutable.fromJS([
   },
 ])
 
+initial.forEach((r) => {
+  Patrun.add(r.get('rule'), () => r.get('value') );
+});
+
+
 const getKeys = (data) => {
   const rules = data.reduce((red, value) => {
     const newKeys = value.get('rule').keySeq();
